@@ -48,7 +48,11 @@ class SettingsViewController: UIViewController {
         
         NSLayoutConstraint.activate([doneButtonTopConstraint, doneButtonTrailingConstraint])
         
+        let switchTopConstraint = shouldShowPlutoSwitch.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 60)
+        let switchTrailingConstraint = shouldShowPlutoSwitch.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         
+        switchTopConstraint.isActive = true
+        switchTrailingConstraint.isActive = true
         
         
     }
