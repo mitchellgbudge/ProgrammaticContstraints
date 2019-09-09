@@ -22,16 +22,49 @@ class SettingsViewController: UIViewController {
         updateViews()
     }
     
+    func setUpSubviews() {
+        let doneButton = UIButton(type: .system)
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.addTarget(self, action: #selector(done), for: .touchUpInside)
+        
+        view.addSubview(doneButton)
+        
+        let doneButtonTopConstraint = NSLayoutConstraint(item: doneButton,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: view.safeAreaLayoutGuide,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: 20)
+        
+        let doneButtonTrailingConstraint = NSLayoutConstraint(item: doneButton,
+                                                              attribute: .trailing,
+                                                              relatedBy: .equal,
+                                                              toItem: view.safeAreaLayoutGuide,
+                                                              attribute: .trailing,
+                                                              multiplier: 1,
+                                                              constant: -20)
+        
+        NSLayoutConstraint.activate([doneButtonTopConstraint, doneButtonTrailingConstraint])
+        
+        
+        
+        
+    }
+    
     // MARK: - Action Handlers
     
-    func changeShouldShowPluto(_ sender: UISwitch) {
+    @objc func changeShouldShowPluto(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isOn, forKey: .shouldShowPlutoKey)
     }
     
-    func done() {
+    @objc func done() {
         dismiss(animated: true, completion: nil)
     }
+    
+    
     
     // MARK: - Private
     
