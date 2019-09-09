@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
+        setUpSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +51,7 @@ class SettingsViewController: UIViewController {
         NSLayoutConstraint.activate([doneButtonTopConstraint, doneButtonTrailingConstraint])
         
         // SWITCH
+        let shouldShowPlutoSwitch = UISwitch()
         let switchTopConstraint = shouldShowPlutoSwitch.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 60)
         let switchTrailingConstraint = shouldShowPlutoSwitch.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         
@@ -66,6 +68,7 @@ class SettingsViewController: UIViewController {
         label.trailingAnchor.constraint(equalTo: shouldShowPlutoSwitch.leadingAnchor, constant: 8).isActive = true
         label.centerYAnchor.constraint(equalTo: shouldShowPlutoSwitch.centerYAnchor, constant: 0).isActive = true
         
+        self.shouldShowPlutoSwitch = shouldShowPlutoSwitch
         
     }
     
