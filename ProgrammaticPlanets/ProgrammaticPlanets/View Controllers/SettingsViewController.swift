@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController {
     }
     
     func setUpSubviews() {
+        // BUTTON
         let doneButton = UIButton(type: .system)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitle("Done", for: .normal)
@@ -48,11 +49,22 @@ class SettingsViewController: UIViewController {
         
         NSLayoutConstraint.activate([doneButtonTopConstraint, doneButtonTrailingConstraint])
         
+        // SWITCH
         let switchTopConstraint = shouldShowPlutoSwitch.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 60)
         let switchTrailingConstraint = shouldShowPlutoSwitch.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         
         switchTopConstraint.isActive = true
         switchTrailingConstraint.isActive = true
+        
+        // LABEL
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Is Pluto a planet?"
+        view.addSubview(label)
+        
+        label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        label.trailingAnchor.constraint(equalTo: shouldShowPlutoSwitch.leadingAnchor, constant: 8).isActive = true
+        label.centerYAnchor.constraint(equalTo: shouldShowPlutoSwitch.centerYAnchor, constant: 0).isActive = true
         
         
     }
